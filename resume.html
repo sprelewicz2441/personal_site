@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="styles/styles.css">
+<script src="styles/_ds_bundle.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Long Version — Scott R. Prelewicz</title>
+<meta name="description" content="The full résumé: twenty-five years of engineering leadership and applied AI, from Zynga and GREE to Healthie and Impacked Packaging.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f2f2;--surface:#eae9e9;--surface-2:#f8f4f4;--text:#201e1d;--divider:rgba(32,30,29,.4);--text-muted:rgba(32,30,29,.6);--accent:#ec3013;--accent-600:#dd2b0f;--on-accent:#f8f4f4;--link:#ae1800;--link-hover:#ec3013;--tag-neutral-bg:#eae7e7;--tag-neutral-fg:#444141}
+[data-theme="dark"]{--bg:#211f1e;--surface:#2c2a29;--surface-2:#191818;--text:#f5f2f1;--divider:rgba(245,242,241,.3);--text-muted:rgba(245,242,241,.62);--link:#ff9783;--link-hover:#ffc4b8;--tag-neutral-bg:#3a3737;--tag-neutral-fg:#f0eded}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-decoration:none;text-underline-offset:3px}
+a:hover{color:var(--link-hover);text-decoration:underline}
+::selection{background:color-mix(in srgb, var(--accent) 30%, transparent)}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Scott R. Prelewicz","jobTitle":"Engineering Leader","description":"Full career record: engineering leadership at Zynga, GREE International, Healthie, Acuity Scheduling/Squarespace, and Impacked Packaging, plus hands-on applied-AI work with the OpenAI API, embeddings, and vector search.","email":"mailto:sprelewicz@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Cape May","addressRegion":"NJ","addressCountry":"US"},"alumniOf":{"@type":"CollegeOrUniversity","name":"State University of New York at Buffalo"},"knowsAbout":["OpenAI API","Prompt Engineering","Semantic Search","Vector Databases","Qdrant","Ruby on Rails","React","Next.js","PostgreSQL","Engineering Leadership","Startup Scaling"]}
+</script>
+</helmet>
+<div data-theme="{{ theme }}" style="min-height:100vh;background:var(--bg);color:var(--text);transition:background .25s ease,color .25s ease;overflow-x:hidden">
+
+<header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:14px 24px;background:var(--bg);border-bottom:2px solid var(--divider)">
+<a href="./index.html" style="display:inline-flex;align-items:center;gap:8px;font-family:Archivo,sans-serif;font-weight:800;font-size:13px;letter-spacing:.02em;color:var(--text)">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
+PRELEWICZ.COM
+</a>
+<nav style="display:flex;align-items:center;gap:18px;margin-left:auto">
+<a href="#profile" style="font-size:13px;color:var(--text)">Profile</a>
+<a href="#experience" style="font-size:13px;color:var(--text)">Experience</a>
+<a href="#skills" style="font-size:13px;color:var(--text)">Skills</a>
+<a href="#education" style="font-size:13px;color:var(--text)">Education</a>
+</nav>
+<button aria-label="Toggle dark mode" onClick="{{ toggleTheme }}" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex:none;background:transparent;border:1px solid var(--divider);color:var(--text);cursor:pointer;padding:0" style-hover="background:color-mix(in srgb, var(--text) 7%, transparent)">
+<sc-if value="{{ themeIsLight }}" hint-placeholder-val="{{ true }}">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3a7 7 0 0 0 9.5 9.5Z"></path></svg>
+</sc-if>
+<sc-if value="{{ themeIsDark }}" hint-placeholder-val="{{ false }}">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"></line><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"></line><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"></line></svg>
+</sc-if>
+</button>
+</header>
+
+<section style="max-width:880px;margin:0 auto;padding:56px 24px 40px">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link);margin-bottom:16px">The Long Version</div>
+<h1 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(32px,6vw,52px);line-height:1.02;letter-spacing:-.02em;margin:0 0 10px">Scott R. Prelewicz</h1>
+<p style="font-size:16px;color:var(--text-muted);margin:0 0 24px">Engineering Leader — Applied AI · Cape May, NJ</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px">
+<a href="{{ resumeUrl }}" download="Scott-Prelewicz-Resume.pdf" style="display:inline-flex;align-items:center;gap:8px;font-family:Archivo,sans-serif;font-weight:800;font-size:14px;color:var(--on-accent);background:var(--accent);padding:12px 20px" style-hover="background:var(--accent-600)">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+Download PDF
+</a>
+<a href="mailto:sprelewicz@gmail.com" style="display:inline-flex;align-items:center;gap:8px;font-family:Archivo,sans-serif;font-weight:800;font-size:14px;color:var(--text);background:transparent;border:1px solid var(--divider);padding:12px 20px" style-hover="background:color-mix(in srgb, var(--text) 7%, transparent)">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16"></rect><path d="m2 6 10 7L22 6"></path></svg>
+Email Me
+</a>
+</div>
+<p id="profile" style="scroll-margin-top:70px;font-size:15.5px;line-height:1.65;color:var(--text-muted);margin:0;padding-top:20px;border-top:2px solid var(--divider)">Hands-on engineering leader and startup builder. My career moved from building products at massive scale — Zynga, GREE International — to helping early-stage companies build the foundations for growth — Healthie, Impacked Packaging — and, most recently, to building production AI systems with the OpenAI API, embeddings, and vector search.</p>
+</section>
+
+<section id="experience" style="scroll-margin-top:66px;max-width:880px;margin:0 auto;padding:0 24px 8px">
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(22px,3vw,28px);letter-spacing:-.01em;margin:0 0 20px;padding-top:32px;border-top:2px solid var(--divider)">Experience</h2>
+<sc-for list="{{ experience }}" as="job" hint-placeholder-count="6">
+<div style="display:flex;flex-wrap:wrap;gap:20px;padding:20px 0;border-bottom:1px solid var(--divider)">
+<div style="flex:0 0 190px">
+<div style="font-weight:800;font-family:Archivo,sans-serif;font-size:15.5px">{{ job.role }}</div>
+<div style="font-size:13.5px;color:var(--link);margin-top:3px">{{ job.company }}</div>
+<div style="font-size:12px;color:var(--text-muted);margin-top:8px">{{ job.dates }}</div>
+<div style="font-size:12px;color:var(--text-muted)">{{ job.location }}</div>
+</div>
+<ul style="flex:1 1 300px;min-width:0;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ job.bullets }}" as="bullet" hint-placeholder-count="3">
+<li style="font-size:14px;line-height:1.55;padding-left:16px;position:relative;color:var(--text)">
+<span style="position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--accent);flex:none"></span>
+{{ bullet }}
+</li>
+</sc-for>
+</ul>
+</div>
+</sc-for>
+<p style="margin-top:20px;font-size:12.5px;color:var(--text-muted);line-height:1.6"><strong style="color:var(--text)">Earlier: </strong>Principal Software Engineer, COMAND Solutions (2008–09) · Senior Software Engineer, HUBNET (1998–2001, 2007–08) · Senior Software Engineer, Noein Incorporated (2005–07) · Independent freelance development (2000–09).</p>
+</section>
+
+<section id="skills" style="scroll-margin-top:66px;max-width:880px;margin:0 auto;padding:0 24px 8px">
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(22px,3vw,28px);letter-spacing:-.01em;margin:0 0 20px;padding-top:32px;border-top:2px solid var(--divider)">Skills</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px 24px;padding-bottom:8px">
+<sc-for list="{{ skillGroups }}" as="grp" hint-placeholder-count="5">
+<div>
+<div style="font-size:12.5px;font-weight:800;font-family:Archivo,sans-serif;margin-bottom:10px">{{ grp.name }}</div>
+<div style="display:flex;flex-wrap:wrap;gap:7px">
+<sc-for list="{{ grp.tags }}" as="tag" hint-placeholder-count="6">
+<span style="display:inline-flex;align-items:center;font-size:11px;letter-spacing:.02em;padding:5px 10px;background:var(--tag-neutral-bg);color:var(--tag-neutral-fg)">{{ tag }}</span>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="education" style="scroll-margin-top:66px;max-width:880px;margin:0 auto;padding:0 24px 64px">
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(22px,3vw,28px);letter-spacing:-.01em;margin:0 0 20px;padding-top:32px;border-top:2px solid var(--divider)">Education</h2>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px">
+<div>
+<div style="font-weight:800;font-family:Archivo,sans-serif;font-size:15.5px">State University of New York at Buffalo</div>
+<div style="font-size:13.5px;color:var(--text-muted);margin-top:3px">Computer Science / Media Studies</div>
+</div>
+<div style="font-size:12px;color:var(--text-muted)">1996–1999</div>
+</div>
+</section>
+
+<footer style="padding:22px 24px;text-align:center;font-size:12px;color:var(--text-muted);background:var(--bg);border-top:2px solid var(--divider)">© {{ year }} Scott R. Prelewicz · <a href="./index.html" style="color:var(--link)">Back to the short version</a></footer>
+
+</div>
+</helmet>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light'|'dark'&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;resumeUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;./assets/Scott-Prelewicz-Resume.pdf&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  state = { theme: 'light' };
+
+  experience = [
+    { role: "Tech Lead", company: "Impacked Packaging", dates: "Sep 2022 – Dec 2025", location: "Remote", bullets: [
+      "Led technical delivery of a B2B packaging marketplace built with React, Next.js, Ruby on Rails, PostgreSQL, Redis, and Heroku.",
+      "Took an OpenAI-powered product-description system from hackathon idea to a production workflow generating and refreshing SEO content across tens of thousands of products.",
+      "Led production deployment of OpenAI- and Qdrant-powered semantic search across the full catalog, replacing filter-only discovery with natural-language, business-aware ranking.",
+      "Took over a nine-person engineering organization and introduced a leaner model that let a three-person team keep delivering major initiatives."
+    ]},
+    { role: "Independent Software Developer", company: "Freelance", dates: "Nov 2019 – Aug 2022", location: "Remote", bullets: [
+      "Completed selected web-development projects using Ruby on Rails, PHP, JavaScript, React, SQL, HTML, and CSS."
+    ]},
+    { role: "Software Engineer", company: "Acuity Scheduling / Squarespace", dates: "Sep 2018 – Oct 2019", location: "Remote", bullets: [
+      "Built product features using PHP, JavaScript, React, and CSS.",
+      "Took ownership of a manual-QA initiative that reduced production defects as the product scaled.",
+      "Worked across distributed engineering, product, and support teams through Acuity's acquisition by Squarespace."
+    ]},
+    { role: "Director of Engineering", company: "Healthie", dates: "May 2016 – Aug 2018", location: "New York, NY / Remote", bullets: [
+      "Joined shortly after the initial MVP launched; helped turn it into a full product and engineering organization.",
+      "Introduced the company's first structured development, release, and deployment process.",
+      "Grew engineering from 4 to 12 while staying roughly 50% hands-on in Ruby on Rails; the company became profitable in 2018 and later scaled to support more than 25,000 clinicians and 10 million patients."
+    ]},
+    { role: "Director of Engineering", company: "GREE International", dates: "Dec 2013 – Apr 2015", location: "San Francisco, CA", bullets: [
+      "Led a 40-person engineering organization across Modern War, Knights & Dragons, Crime City, and Kingdom Age — multiple long-running top-50-grossing US mobile games.",
+      "Introduced a consistent planning and delivery cadence where none had existed.",
+      "Reorganized the RPG studio around commercial performance; briefly served as acting co-GM. Spoke on an industry panel at GDC."
+    ]},
+    { role: "Senior Manager / Director, Engineering", company: "Zynga", dates: "Jan 2010 – Jul 2013", location: "Multiple US studios", bullets: [
+      "Led FrontierVille's engineering organization at its peak — approximately 6 million DAU and up to 36 million MAU.",
+      "Led FrontierVille engineering during a year it represented 15% of Zynga's 2011 online-game revenue — roughly $160 million.",
+      "Led engineering on CastleVille after launch; the game reached about 5 million DAU within six days and 30+ million MAU in its first month.",
+      "Ran distributed teams of up to 35 people across four cities: 100% of engineering OKRs met, 0% voluntary attrition."
+    ]}
+  ];
+
+  skillGroups = [
+    { name: "Applied AI & ML Systems", tags: ["OpenAI API","Prompt Engineering","Structured Output","Embeddings","Semantic & Vector Search","Qdrant","Hybrid Retrieval","Human-in-the-Loop Validation"] },
+    { name: "AI-Assisted Development", tags: ["Claude Code","Code Generation","Debugging & Refactoring","Test-Driven Validation","Code Review"] },
+    { name: "Languages & Frameworks", tags: ["Ruby on Rails","PHP","JavaScript","React","Next.js","Python","Perl","Java","SQL","HTML","CSS"] },
+    { name: "Data & Platforms", tags: ["PostgreSQL","MySQL","Redis","Memcached","Heroku","REST APIs","Linux/Unix"] },
+    { name: "Leadership", tags: ["Architecture & Strategy","Startup Scaling","Org Design","Hiring","Performance Management","Manager Development","Acquisition Evaluation"] }
+  ];
+
+  componentDidMount() {
+    const theme = this.props.defaultTheme === 'dark' ? 'dark' : 'light';
+    this.setState({ theme });
+  }
+  toggleTheme = () => this.setState(s => ({ theme: s.theme === 'dark' ? 'light' : 'dark' }));
+
+  renderVals() {
+    const theme = this.state.theme;
+    return {
+      theme,
+      themeIsDark: theme === 'dark',
+      themeIsLight: theme !== 'dark',
+      toggleTheme: this.toggleTheme,
+      resumeUrl: this.props.resumeUrl || './assets/Scott-Prelewicz-Resume.pdf',
+      year: new Date().getFullYear(),
+      experience: this.experience,
+      skillGroups: this.skillGroups
+    };
+  }
+}
+</script>
+</body>
+</html>
