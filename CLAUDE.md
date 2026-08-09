@@ -45,6 +45,14 @@ To change page content or behavior, edit the `class Component extends DCLogic` b
 
 Both pages support light/dark mode via a `data-theme` attribute on the root wrapper div, toggled at runtime (`toggleTheme` in the `Component` class) and initialized from the `defaultTheme` prop. Dark-mode values live in a `[data-theme="dark"]` CSS block alongside the light defaults in each page's inline `<style>`.
 
+## Deployment & hosting
+
+**Deployed and live**: this repo (`github.com/sprelewicz2441/personal_site`) is a **Cloudflare Pages** project named `personal-site` (Framework preset: None, no build command, build output directory `/` — plain static files, no backend/build step), connected via the Cloudflare Pages GitHub App scoped to just this repo, auto-deploying on every push to `main`. Live at `https://personal-site-999.pages.dev`, confirmed live 2026-08-08. **`git push origin main` is the deploy step** — no separate deploy command or dashboard action needed.
+
+Chose Cloudflare Pages over Render (the pattern used for `kat_trap`/`kpground`) because this site has no backend planned, ever — Render was picked there specifically to keep future Rails/Django game backends on one consistent compute provider, which doesn't apply here. Cloudflare Pages custom domains are free (no per-domain billing like Render's Hobby-plan 2-domain cap), and DNS management would live in the same place as hosting if a custom domain is added later.
+
+No custom domain configured yet — still on the `*.pages.dev` subdomain. Domain registration and DNS not yet decided.
+
 ### Content notes
 
 - `assets/scott-photo.jpg` and `assets/Scott-Prelewicz-Resume.pdf` are referenced directly by path from `index.html`/`resume.html`.
