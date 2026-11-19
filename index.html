@@ -25,6 +25,8 @@
 :root{--bg:#f3f2f2;--surface:#eae9e9;--surface-2:#f8f4f4;--text:#201e1d;--divider:rgba(32,30,29,.4);--text-muted:rgba(32,30,29,.6);--accent:#ec3013;--accent-600:#dd2b0f;--on-accent:#f8f4f4;--link:#ae1800;--link-hover:#ec3013;--tag-accent-bg:#fff2ef;--tag-accent-fg:#7c1405;--tag-neutral-bg:#eae7e7;--tag-neutral-fg:#444141;--shadow-sm:0 1px 2px rgba(45,43,43,.14);--shadow-md:0 3px 10px rgba(45,43,43,.16)}
 [data-theme="dark"]{--bg:#211f1e;--surface:#2c2a29;--surface-2:#191818;--text:#f5f2f1;--divider:rgba(245,242,241,.3);--text-muted:rgba(245,242,241,.62);--link:#ff9783;--link-hover:#ffc4b8;--tag-accent-bg:#5c1608;--tag-accent-fg:#ffcfc4;--tag-neutral-bg:#3a3737;--tag-neutral-fg:#f0eded;--shadow-sm:0 1px 2px rgba(0,0,0,.5);--shadow-md:0 4px 14px rgba(0,0,0,.5)}
 *{box-sizing:border-box}
+@keyframes avail-pulse{0%{box-shadow:0 0 0 0 rgba(31,157,85,.55)}100%{box-shadow:0 0 0 10px rgba(31,157,85,0)}}
+@media (prefers-reduced-motion:no-preference){.avail-dot{animation:avail-pulse 2s ease-out infinite}}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--link);text-decoration:none;text-underline-offset:3px}
@@ -49,7 +51,8 @@ a:hover{color:var(--link-hover);text-decoration:underline}
 <nav style="display:flex;align-items:center;gap:22px">
 <a href="#about" style="font-size:14px;color:var(--text)">About</a>
 <sc-if value="{{ showSelectedWork }}" hint-placeholder-val="{{ true }}"><a href="#work" style="font-size:14px;color:var(--text)">Track Record</a></sc-if>
-<a href="#services" style="font-size:14px;color:var(--text)">Services</a>
+<a href="#games" style="font-size:14px;color:var(--text)">Games</a>
+<a href="#services" style="font-size:14px;color:var(--on-accent);background:var(--accent);padding:8px 14px;font-weight:700">Hire Me</a>
 <a href="./resume.html" style="font-size:14px;color:var(--text)">The Long Version</a>
 <a href="#faq" style="font-size:14px;color:var(--text)">FAQ</a>
 <a href="#contact" style="font-size:14px;color:var(--text)">Contact</a>
@@ -81,7 +84,8 @@ a:hover{color:var(--link-hover);text-decoration:underline}
 <nav style="display:flex;flex-direction:column;background:var(--bg);border-bottom:2px solid var(--divider)">
 <a onClick="{{ closeMobileNav }}" href="#about" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">About</a>
 <sc-if value="{{ showSelectedWork }}" hint-placeholder-val="{{ true }}"><a onClick="{{ closeMobileNav }}" href="#work" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">Track Record</a></sc-if>
-<a onClick="{{ closeMobileNav }}" href="#services" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">Services</a>
+<a onClick="{{ closeMobileNav }}" href="#games" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">Games</a>
+<a onClick="{{ closeMobileNav }}" href="#services" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider);font-weight:700">Hire Me</a>
 <a onClick="{{ closeMobileNav }}" href="./resume.html" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">The Long Version</a>
 <a onClick="{{ closeMobileNav }}" href="#faq" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">FAQ</a>
 <a onClick="{{ closeMobileNav }}" href="#contact" style="padding:14px 24px;font-size:15px;color:var(--text)">Contact</a>
@@ -96,12 +100,13 @@ Engineering Leader — Applied AI
 </div>
 <h1 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(40px,7vw,80px);line-height:.98;letter-spacing:-.02em;margin:0 0 20px">Scott R.<br/>Prelewicz</h1>
 <p style="font-size:clamp(17px,2vw,20px);line-height:1.5;max-width:560px;color:var(--text-muted);margin:0">Twenty-five years of shipping software — from games, web and mobile, that earned up to $160M a year and reached up to 6 million daily players, to AI systems running in production today</p>
-<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:30px">
+<a href="#services" style="display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:8px 14px;border:1px solid var(--divider);font-size:13px;font-weight:700;color:var(--text)" style-hover="background:color-mix(in srgb, var(--text) 7%, transparent)"><span class="avail-dot" style="width:9px;height:9px;border-radius:50%;background:#1f9d55;display:inline-block;flex:none"></span>Open to new roles and projects</a>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
 <a href="{{ resumeUrl }}" download="Scott-Prelewicz-Resume.pdf" style="display:inline-flex;align-items:center;gap:8px;font-family:Archivo,sans-serif;font-weight:800;font-size:14px;color:var(--on-accent);background:var(--accent);padding:13px 22px" style-hover="background:var(--accent-600)">
 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M5 21h14"></path></svg>
 Download Résumé
 </a>
-<a href="#contact" style="display:inline-flex;align-items:center;gap:8px;font-family:Archivo,sans-serif;font-weight:800;font-size:14px;color:var(--text);background:transparent;border:1px solid var(--divider);padding:13px 22px" style-hover="background:color-mix(in srgb, var(--text) 7%, transparent)">Get in Touch</a>
+<a href="#contact" style="display:inline-flex;align-items:center;gap:8px;font-family:Archivo,sans-serif;font-weight:800;font-size:14px;color:var(--text);background:transparent;border:1px solid var(--divider);padding:13px 22px" style-hover="background:color-mix(in srgb, var(--text) 7%, transparent)">Work With Me</a>
 </div>
 <div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:28px;font-size:13px;color:var(--text-muted)">
 <span style="display:inline-flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Cape May, NJ</span>
@@ -127,9 +132,9 @@ Download Résumé
 </div>
 <div style="flex:1 1 480px;min-width:0;max-width:720px">
 <p style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;margin:0 0 28px">"My career moved from building products at massive scale to building the foundations that let small teams grow."</p>
-<p style="font-size:15.5px;line-height:1.65;color:var(--text-muted);margin:0 0 18px">I started at Zynga during FrontierVille's launch, then helped lead engineering as it scaled to millions of daily players — including a year the game generated roughly $160 million in revenue, about 15% of Zynga's online-game business at the time. From there I ran a 40-person engineering org at GREE across a portfolio of top-50-grossing mobile games.</p>
+<p style="font-size:15.5px;line-height:1.65;color:var(--text-muted);margin:0 0 18px">I started at Zynga on FishVille, my first game, then went on to lead engineering on FrontierVille as it scaled to millions of daily players — including a year the game generated roughly $160 million in revenue, about 15% of Zynga's online-game business at the time. From there I ran a 40-person engineering org at GREE across a portfolio of top-50-grossing mobile games.</p>
 <p style="font-size:15.5px;line-height:1.65;color:var(--text-muted);margin:0 0 18px">The back half of my career has been the opposite problem: taking that scale experience and applying it to teams that don't have it yet. At Healthie I helped grow engineering from 4 to 12 people on the way to profitability. Most recently, at Impacked Packaging, I built production AI systems — semantic search, automated content generation — with lean teams and short paths from idea to production.</p>
-<p style="font-size:15.5px;line-height:1.65;color:var(--text-muted);margin:0;padding-top:14px;border-top:1px solid var(--divider)">Beyond the résumé: home is Cape May, NJ. These days, I'm also writing pages like this one for my daughter, so the record is there when she wants it.</p>
+<p style="font-size:15.5px;line-height:1.65;color:var(--text-muted);margin:0;padding-top:14px;border-top:1px solid var(--divider)">Beyond the résumé: home is Cape May, NJ. These days, I make games with my daughter.</p>
 <div style="margin-top:24px">
 <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link);margin-bottom:10px">The route so far</div>
 <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px">
@@ -159,24 +164,29 @@ Download Résumé
 <sc-if value="{{ showSelectedWork }}" hint-placeholder-val="{{ true }}">
 <section id="work" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:72px 24px 80px;border-top:2px solid var(--divider)">
 <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link)">Track Record</div>
-<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(34px,5.5vw,64px);line-height:1;letter-spacing:-.02em;margin:14px 0 18px;max-width:880px">Twenty-five years of shipping things that worked.</h2>
-<p style="font-size:clamp(16px,1.8vw,19px);line-height:1.55;color:var(--text-muted);max-width:640px;margin:0 0 44px">A $160M year, millions of daily users, teams built from scratch, and production AI. The numbers first, then the stories behind them.</p>
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(34px,5.5vw,64px);line-height:1;letter-spacing:-.02em;margin:14px 0 18px;max-width:880px">Millions of players. Teams that stayed. Products that shipped.</h2>
+<p style="font-size:clamp(16px,1.8vw,19px);line-height:1.55;color:var(--text-muted);max-width:640px;margin:0 0 44px">I started on FishVille and ended up running engineering for some of the biggest games on the internet. Then I went to smaller companies and did the harder part: building teams that ship, and stay.</p>
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--text);border-bottom:1px solid var(--divider);margin-bottom:48px">
 <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="6">
 <div style="padding:26px 20px 26px 0">
-<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(38px,5vw,60px);line-height:1;letter-spacing:-.02em;color:var(--link)">{{ stat.value }}</div>
+<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(44px,6vw,76px);line-height:1;letter-spacing:-.02em;color:var(--link)">{{ stat.value }}</div>
 <div style="font-size:13px;line-height:1.4;color:var(--text-muted);margin-top:10px;max-width:200px">{{ stat.label }}</div>
 </div>
 </sc-for>
 </div>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:28px">
 <sc-for list="{{ workCards }}" as="card" hint-placeholder-count="6">
 <div style="background:var(--surface);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-sm);border-top:4px solid var(--accent)">
 <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--link);font-weight:800">{{ card.kicker }}</div>
 <div style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-.01em">{{ card.title }}</div>
-<p style="margin:0;font-size:16px;line-height:1.6;color:var(--text-muted);flex:1">{{ card.body }}</p>
+<p style="margin:0;font-size:17px;line-height:1.6;color:var(--text-muted)">{{ card.body }}</p>
+<ul style="margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;flex:1">
+<sc-for list="{{ card.points }}" as="pt" hint-placeholder-count="3">
+<li style="font-size:14.5px;line-height:1.5;padding-left:18px;position:relative"><span style="position:absolute;left:0;top:.55em;width:7px;height:7px;background:var(--accent)"></span>{{ pt }}</li>
+</sc-for>
+</ul>
 <div style="font-size:12px;color:var(--text-muted);padding-top:14px;border-top:1px solid var(--divider)">{{ card.meta }}</div>
 </div>
 </sc-for>
@@ -184,24 +194,105 @@ Download Résumé
 </section>
 </sc-if>
 
+<section id="career" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:72px 24px 80px;border-top:2px solid var(--divider)">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link)">Career</div>
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(34px,5.5vw,64px);line-height:1;letter-spacing:-.02em;margin:14px 0 40px;max-width:880px">From FishVille to production AI.</h2>
+<div style="border-top:2px solid var(--text)">
+<sc-for list="{{ career }}" as="job" hint-placeholder-count="6">
+<div style="display:flex;flex-wrap:wrap;gap:12px 40px;padding:26px 0;border-bottom:1px solid var(--divider)">
+<div style="flex:0 0 200px">
+<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:15px;color:var(--link)">{{ job.dates }}</div>
+<div style="font-size:13px;color:var(--text-muted);margin-top:4px">{{ job.where }}</div>
+</div>
+<div style="flex:1 1 420px;min-width:0">
+<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(20px,2.2vw,26px);line-height:1.15">{{ job.company }}</div>
+<div style="font-size:14px;color:var(--text-muted);margin:4px 0 12px">{{ job.role }}</div>
+<p style="margin:0;font-size:16px;line-height:1.6;color:var(--text)">{{ job.summary }}</p>
+</div>
+</div>
+</sc-for>
+</div>
+<p style="margin:22px 0 0;font-size:13.5px;line-height:1.6;color:var(--text-muted)"><strong style="color:var(--text)">Earlier: </strong>Principal Software Engineer at COMAND Solutions, Senior Software Engineer at HUBNET and Noein Incorporated, and independent development, 1998–2009. <a href="./resume.html">The full résumé</a></p>
+</section>
+
+<section id="capabilities" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:72px 24px 80px;border-top:2px solid var(--divider)">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link)">Capabilities</div>
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(34px,5.5vw,64px);line-height:1;letter-spacing:-.02em;margin:14px 0 40px;max-width:880px">Leader and builder.</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:36px 32px">
+<sc-for list="{{ skillGroups }}" as="grp" hint-placeholder-count="5">
+<div>
+<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:18px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--text)">{{ grp.name }}</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ grp.tags }}" as="tag" hint-placeholder-count="6">
+<span style="font-size:13px;padding:6px 12px;background:var(--tag-neutral-bg);color:var(--tag-neutral-fg)">{{ tag }}</span>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="games" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:72px 24px 80px;border-top:2px solid var(--divider)">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link)">Games</div>
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(34px,5.5vw,64px);line-height:1;letter-spacing:-.02em;margin:14px 0 18px;max-width:880px">Still making games. Go play two.</h2>
+<p style="font-size:clamp(16px,1.8vw,19px);line-height:1.55;color:var(--text-muted);max-width:640px;margin:0 0 44px">After years on games with millions of players, I build my own now: small, warm, and live on the web.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:28px">
+<sc-for list="{{ games }}" as="game" hint-placeholder-count="2">
+<a href="{{ game.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:14px;background:var(--surface);padding:clamp(24px,3vw,36px);border-top:4px solid var(--accent);color:var(--text);text-decoration:none;box-shadow:var(--shadow-sm)" style-hover="background:var(--surface-2)">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--link);font-weight:800">{{ game.kicker }}</div>
+<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(30px,3.6vw,44px);line-height:1;letter-spacing:-.02em">{{ game.name }}</div>
+<p style="margin:0;font-size:17px;line-height:1.6;color:var(--text-muted);flex:1">{{ game.body }}</p>
+<div style="display:inline-flex;align-items:center;gap:8px;font-family:Archivo,sans-serif;font-weight:800;font-size:15px;color:var(--link)">{{ game.host }}<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></div>
+</a>
+</sc-for>
+</div>
+</section>
+
 <div style="background:var(--surface-2);border-top:2px solid var(--divider)">
-<section id="services" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:72px 24px 80px">
-<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link)">Services</div>
-<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(34px,5.5vw,64px);line-height:1;letter-spacing:-.02em;margin:14px 0 18px;max-width:880px">Hire the person who's done it.</h2>
-<p style="font-size:clamp(16px,1.8vw,19px);line-height:1.55;color:var(--text-muted);max-width:640px;margin:0 0 44px">I take on a small number of consulting and fractional engagements. Senior, hands-on, and focused on outcomes rather than hours.</p>
+<section id="recommendations" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:72px 24px 80px">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link)">Recommendations</div>
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(34px,5.5vw,64px);line-height:1;letter-spacing:-.02em;margin:14px 0 40px;max-width:880px">Don't take my word for it.</h2>
+<figure style="margin:0 0 40px;padding:clamp(24px,4vw,48px);background:var(--bg);border-left:6px solid var(--accent)">
+<blockquote style="margin:0;font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(22px,2.8vw,34px);line-height:1.25;letter-spacing:-.01em">"{{ featured.quote }}"</blockquote>
+<figcaption style="margin-top:20px;font-size:14px;color:var(--text-muted)"><strong style="color:var(--text)">{{ featured.name }}</strong> · {{ featured.title }}</figcaption>
+</figure>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px">
+<sc-for list="{{ recommendations }}" as="rec" hint-placeholder-count="6">
+<figure style="margin:0;padding:26px;background:var(--bg);border:1px solid var(--divider);display:flex;flex-direction:column;gap:16px">
+<blockquote style="margin:0;font-size:16px;line-height:1.6;flex:1">"{{ rec.quote }}"</blockquote>
+<figcaption style="font-size:13px;color:var(--text-muted);padding-top:14px;border-top:1px solid var(--divider)"><strong style="color:var(--text)">{{ rec.name }}</strong><br/>{{ rec.title }}</figcaption>
+</figure>
+</sc-for>
+</div>
+<p style="margin:26px 0 0;font-size:13px;color:var(--text-muted)">Recommendations from former colleagues, written on LinkedIn.</p>
+</section>
+</div>
+
+<section id="services" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:80px 24px 88px;border-top:2px solid var(--divider)">
+<div style="display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--divider);font-size:13px;font-weight:700"><span class="avail-dot" style="width:9px;height:9px;border-radius:50%;background:#1f9d55;display:inline-block;flex:none"></span>Available now</div>
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(40px,7.5vw,92px);line-height:.96;letter-spacing:-.025em;margin:22px 0 22px;max-width:1000px">Looking for the next thing worth building.</h2>
+<p style="font-size:clamp(17px,2vw,21px);line-height:1.55;color:var(--text-muted);max-width:680px;margin:0 0 20px">Engineering leadership, full-stack product work, or games. Full-time, contract, or part-time, whichever fits the problem.</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 48px">
+<span style="font-size:12px;font-weight:800;letter-spacing:.04em;padding:6px 12px;background:var(--tag-accent-bg);color:var(--tag-accent-fg)">FULL-TIME</span>
+<span style="font-size:12px;font-weight:800;letter-spacing:.04em;padding:6px 12px;background:var(--tag-accent-bg);color:var(--tag-accent-fg)">CONTRACT</span>
+<span style="font-size:12px;font-weight:800;letter-spacing:.04em;padding:6px 12px;background:var(--tag-accent-bg);color:var(--tag-accent-fg)">PART-TIME</span>
+<span style="font-size:12px;font-weight:800;letter-spacing:.04em;padding:6px 12px;background:var(--tag-neutral-bg);color:var(--tag-neutral-fg)">REMOTE</span>
+</div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px">
 <sc-for list="{{ services }}" as="svc" hint-placeholder-count="4">
-<div style="background:var(--bg);padding:28px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--divider)">
+<div style="background:var(--surface);padding:30px;display:flex;flex-direction:column;gap:14px;border-top:4px solid var(--accent);box-shadow:var(--shadow-sm)">
 <div style="font-family:Archivo,sans-serif;font-weight:800;font-size:12px;letter-spacing:.1em;color:var(--link)">{{ svc.num }}</div>
-<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:22px;line-height:1.15">{{ svc.title }}</div>
-<p style="margin:0;font-size:15px;line-height:1.6;color:var(--text-muted);flex:1">{{ svc.body }}</p>
+<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(22px,2.2vw,26px);line-height:1.1">{{ svc.title }}</div>
+<p style="margin:0;font-size:15.5px;line-height:1.6;color:var(--text-muted);flex:1">{{ svc.body }}</p>
 <div style="font-size:12px;color:var(--text-muted);padding-top:12px;border-top:1px solid var(--divider)">{{ svc.proof }}</div>
 </div>
 </sc-for>
 </div>
-<a href="#contact" style="display:inline-flex;align-items:center;gap:8px;margin-top:36px;font-family:Archivo,sans-serif;font-weight:800;font-size:15px;color:var(--on-accent);background:var(--accent);padding:15px 26px" style-hover="background:var(--accent-600)">Start a conversation</a>
-</section>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:44px">
+<a href="mailto:sprelewicz@gmail.com?subject=Working%20together" style="display:inline-flex;align-items:center;gap:10px;font-family:Archivo,sans-serif;font-weight:800;font-size:17px;color:var(--on-accent);background:var(--accent);padding:18px 32px" style-hover="background:var(--accent-600)">Let's talk about your project</a>
+<span style="font-size:14px;color:var(--text-muted)">or write to sprelewicz@gmail.com. I reply fast.</span>
 </div>
+</section>
 
 <div style="background:var(--surface-2);border-top:2px solid var(--divider)">
 <section id="faq" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:64px 24px 80px;display:flex;flex-wrap:wrap;gap:40px">
@@ -224,7 +315,7 @@ Download Résumé
 <div style="max-width:1200px;margin:0 auto">
 <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.85;margin-bottom:18px">Contact</div>
 <h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(44px,9vw,104px);line-height:.95;letter-spacing:-.02em;margin:0 0 20px;color:var(--on-accent)">Let's talk.</h2>
-<p style="font-size:clamp(16px,2vw,20px);max-width:560px;line-height:1.5;opacity:.92;margin:0 0 36px">Need a fractional CTO, an AI system in production, or a senior engineer who's done it at scale? Tell me what you're working on.</p>
+<p style="font-size:clamp(16px,2vw,20px);max-width:560px;line-height:1.5;opacity:.92;margin:0 0 36px">Hiring for engineering leadership, full-stack work, or games? Tell me what you're building.</p>
 <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:center">
 <a href="mailto:sprelewicz@gmail.com" style="display:inline-flex;align-items:center;gap:10px;font-family:Archivo,sans-serif;font-weight:800;font-size:20px;color:var(--on-accent);border-bottom:2px solid var(--on-accent);padding-bottom:4px">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16"></rect><path d="m2 6 10 7L22 6"></path></svg>
@@ -252,28 +343,63 @@ class Component extends DCLogic {
   state = { theme: 'light', isMobile: false, isMobileNavOpen: false };
 
   stats = [
-    { value: "$160M", label: "Revenue in a single year from FrontierVille, ~15% of Zynga's online-game business" },
-    { value: "6M", label: "Daily players at FrontierVille's peak" },
-    { value: "40", label: "Engineers led across a portfolio of top-50-grossing mobile games at GREE" },
-    { value: "4→12", label: "Engineering team growth at Healthie, on the way to profitability" },
-    { value: "10K+", label: "Products running through AI-generated content in production" },
-    { value: "25+", label: "Years shipping software" }
+    { value: "$160M", label: "Revenue in one year from FrontierVille, about 15% of Zynga's 2011 online-game business" },
+    { value: "36M", label: "Monthly players at FrontierVille's peak" },
+    { value: "5M", label: "Daily players on CastleVille within six days of launch" },
+    { value: "0%", label: "Voluntary attrition across teams of up to 35 people in four cities" },
+    { value: "40", label: "Engineers led across four top-50-grossing mobile games at GREE" },
+    { value: "10M", label: "Patients now on Healthie, the company I helped grow into a profitable business" }
   ];
 
   workCards = [
-    { kicker: "Scale", title: "Games that earned $160M a year", body: "Led engineering through FrontierVille's peak at Zynga: about 6 million daily players and roughly 15% of the company's online-game revenue. Then ran a 40-person org at GREE across top-50-grossing mobile games.", meta: "Web and mobile · High-traffic systems · Live operations" },
-    { kicker: "Applied AI", title: "From hackathon idea to production AI", body: "Took an OpenAI-powered content system from prototype to a production workflow that generates and refreshes SEO content across tens of thousands of products.", meta: "OpenAI API · Rails · SEO automation" },
-    { kicker: "Search", title: "Semantic search that understands the business", body: "Led production deployment of OpenAI- and Qdrant-powered semantic search, replacing filter-only discovery with natural-language, business-aware ranking.", meta: "Embeddings · Vector search · Qdrant" },
-    { kicker: "Team Building", title: "Small teams that out-ship big ones", body: "A three-person team kept delivering what a nine-person team used to handle. At Healthie, grew engineering from 4 to 12 and shipped the company's first real release process.", meta: "Org design · Hiring · Release process" },
-    { kicker: "Results", title: "100% of OKRs, 0% voluntary attrition", body: "At Zynga, my teams hit every engineering OKR without losing anyone by choice. Fast delivery and a team people want to stay on aren't in tension.", meta: "Leadership · Retention · Execution" },
-    { kicker: "Profitability", title: "Engineering that helps the business get to profit", body: "Helped Healthie reach profitability by building the foundation (process, people, and release discipline) that let a small team move quickly and safely.", meta: "Ruby on Rails · Process · Growth-stage startups" }
+    { kicker: "Launch", title: "Five million players in six days", body: "After CastleVille launched, I led its engineering. Launches like that don't forgive surprises, so we didn't have many.", points: ["Led engineering on CastleVille after launch", "About 5 million daily players within six days", "More than 30 million monthly players in its first month"], meta: "Zynga · Launch readiness · Live operations" },
+    { kicker: "Revenue", title: "A game that made $160M in a year", body: "FrontierVille's engineering team kept a game running for millions of people a day. It was the second game I worked on at Zynga, after FishVille, my first.", points: ["Led the engineering organization at the game's peak", "About 6 million daily and up to 36 million monthly players", "A year that represented 15% of Zynga's 2011 online-game revenue, roughly $160M"], meta: "Zynga · Web-scale systems · Team leadership" },
+    { kicker: "People", title: "Teams of 35. Nobody quit.", body: "I'd rather build a team people want to stay on than one I have to keep refilling.", points: ["Distributed teams of up to 35 people across four cities", "100% of engineering OKRs met", "0% voluntary attrition"], meta: "Zynga · Distributed teams · Retention" },
+    { kicker: "Turnaround", title: "Gave a 40-person org a rhythm", body: "At GREE I took over engineering across a portfolio of long-running mobile games and put it on a steady footing.", points: ["Led 40 engineers across Modern War, Knights & Dragons, Crime City, and Kingdom Age, all top-50-grossing US mobile games", "Introduced a consistent planning and delivery cadence where none had existed", "Reorganized the RPG studio around commercial performance and briefly served as acting co-GM", "Spoke on an industry panel at GDC"], meta: "GREE · Org design · Commercial focus" },
+    { kicker: "Startup", title: "From launched to profitable", body: "Healthie had fully launched when I joined as Director of Engineering. My job was turning a working product into a company that could ship reliably and grow.", points: ["Built the company's first structured development, release, and deployment process", "Grew engineering from 4 to 12 while staying about 50% hands-on in Ruby on Rails", "Profitable in 2018; has since scaled to more than 25,000 clinicians and 10 million patients"], meta: "Healthie · Ruby on Rails · Hiring" },
+    { kicker: "Applied AI", title: "AI that runs in production", body: "At Impacked Packaging I took AI from hackathon idea to something the business runs on, with a smaller team than before.", points: ["Product-description system running across tens of thousands of products, generating and refreshing SEO content", "OpenAI- and Qdrant-powered semantic search across the full catalog, replacing filter-only discovery", "Took over a nine-person engineering org and introduced a leaner model that let three people keep delivering"], meta: "Impacked Packaging · OpenAI · Qdrant · Lean teams" }
+  ];
+
+  career = [
+    { dates: "2022 – 2025", where: "Remote", company: "Impacked Packaging", role: "Tech Lead", summary: "Led technical delivery of a B2B packaging marketplace built on React, Next.js, Rails, PostgreSQL, and Redis. Shipped AI product descriptions and semantic search to production, and moved the engineering team to a leaner model." },
+    { dates: "2019 – 2022", where: "Remote", company: "Independent", role: "Software Developer", summary: "Selected web-development projects in Ruby on Rails, PHP, JavaScript, and React." },
+    { dates: "2018 – 2019", where: "Remote", company: "Acuity Scheduling / Squarespace", role: "Software Engineer", summary: "Built product features in PHP, JavaScript, and React. Took ownership of a manual-QA initiative that reduced production defects, and worked across distributed teams through the Squarespace acquisition." },
+    { dates: "2016 – 2018", where: "New York, NY / Remote", company: "Healthie", role: "Director of Engineering", summary: "Joined after launch and built the engineering organization and release process around the product. Grew the team from 4 to 12 on the way to profitability." },
+    { dates: "2013 – 2015", where: "San Francisco, CA", company: "GREE International", role: "Director of Engineering", summary: "Led 40 engineers across four top-50-grossing mobile games, set a planning and delivery cadence, and reorganized the RPG studio around commercial performance." },
+    { dates: "2010 – 2013", where: "Multiple US studios", company: "Zynga", role: "Senior Manager / Director, Engineering", summary: "Started on FishVille, my first game, as it grew to roughly 8 million daily players. Went on to lead engineering on FrontierVille at its peak and on CastleVille after launch, with teams of up to 35 across four cities." }
+  ];
+
+  skillGroups = [
+    { name: "Engineering Leadership", tags: ["Architecture & Strategy", "Startup Scaling", "Org Design", "Hiring", "Performance Management", "Manager Development", "Acquisition Evaluation"] },
+    { name: "Applied AI & ML Systems", tags: ["OpenAI API", "Prompt Engineering", "Structured Output", "Embeddings", "Semantic & Vector Search", "Qdrant", "Hybrid Retrieval", "Human-in-the-Loop Validation"] },
+    { name: "AI-Assisted Development", tags: ["Claude Code", "Code Generation", "Debugging & Refactoring", "Test-Driven Validation", "Code Review"] },
+    { name: "Languages & Frameworks", tags: ["Ruby on Rails", "PHP", "JavaScript", "React", "Next.js", "Python", "Perl", "Java", "SQL", "HTML", "CSS"] },
+    { name: "Data & Platforms", tags: ["PostgreSQL", "MySQL", "Redis", "Memcached", "Heroku", "REST APIs", "Linux/Unix"] }
   ];
 
   services = [
-    { num: "01", title: "Fractional CTO / Engineering Leadership", body: "Part-time senior leadership for teams that need direction, hiring help, architecture decisions, and a steady hand without a full-time executive.", proof: "Built and led teams from 4 to 40" },
-    { num: "02", title: "Applied AI Implementation", body: "Take an AI idea to production: content generation, semantic search, embeddings, and vector databases, built to be maintained, not demoed.", proof: "Shipped across tens of thousands of products" },
-    { num: "03", title: "Scaling & Architecture Review", body: "An experienced second opinion on systems that are straining under growth, covering performance, reliability, and what to fix first.", proof: "Systems serving 6M daily players" },
-    { num: "04", title: "Hands-On Engineering", body: "Senior Rails, JavaScript, and React work for a defined project, with a short path from idea to production.", proof: "25+ years in the code" }
+    { num: "01", title: "Engineering Leadership", body: "Director-level leadership for teams that need direction: planning, hiring, release process, architecture calls, and a rhythm the team can run without me. Still hands-on, so I know when a plan is optimistic.", proof: "Directed engineering at Healthie and GREE" },
+    { num: "02", title: "Full-Stack Engineering", body: "End-to-end product work, from database to interface. Rails, React, Next.js, PHP, and PostgreSQL, built to ship and then keep shipping.", proof: "25+ years in the code" },
+    { num: "03", title: "Games & Game Product", body: "Web and mobile games, from first prototype through live operations. I've run engineering on games with millions of daily players and I'm still building my own.", proof: "FishVille, FrontierVille, CastleVille, Buffale, Friendscene" },
+    { num: "04", title: "Applied AI, Shipped", body: "Content generation, semantic search, embeddings, vector databases: AI taken from prototype to something your business relies on, with a human check where it matters.", proof: "Production AI across tens of thousands of products" }
+  ];
+
+  games = [
+    { kicker: "Party game", name: "Friendscene", body: "A game of kind questions about your friends. Everyone answers who in the group fits, then the group reveals its picks together. No accounts: join by invite link, play anytime, or run a live Party Mode on everyone's phones.", host: "playfriendscene.com", url: "https://playfriendscene.com" },
+    { kicker: "Daily word game", name: "Buffale", body: "A free daily word game for Buffalo sports fans. Guess the five-letter answer in six tries: Bills, Sabres, UB, Braves, and anything else from Buffalo sports, past or present.", host: "buffale.com", url: "https://buffale.com" }
+  ];
+
+  featured = { quote: "Scott Prelewicz was an exceptional manager in my growth as a software engineer. Under him, his mentorship saw me grow from software engineer, to sr software engineer, to pod lead. [...] I would work for Scott again in a heart beat, and highly recommend any company pick him up.", name: "Dan Buscaglia", title: "Lead Software Engineer at Zynga" };
+
+  recommendations = [
+    { quote: "He was calm under pressure and always upbeat, and made what was potentially a daunting task seem achievable and reasonable. [...] He was key to our success and a pleasure to work with.", name: "RD Wegener", title: "Lead Producer at Zynga" },
+    { quote: "Being on a team with Scott means getting more done, thinking smarter, and having a better time doing it.", name: "Jordan Blackman", title: "Veteran Game Designer & Producer" },
+    { quote: "Scott is an incredibly talented engineer and manager who makes the people around him better through his guidance, mentoring, and attention to detail.", name: "August Guadamuz", title: "Senior Data Analyst at Zynga" },
+    { quote: "Even with our very aggressive sprint schedules, he never stopped introducing better ideas that ultimately improved our group's health.", name: "Joseph Kim", title: "Product Manager at GREE, Inc." },
+    { quote: "Scott displays an incredible capacity for planning and risk mitigation, he is trusted by his peers and shows a high level of dedication to the products he works with.", name: "Christopher Le", title: "QA Manager at Zynga" },
+    { quote: "He started the culture of feature pod lead where individual developers in the pod wore the hat of tech lead and manager for that project while he played the role of a mentor.", name: "Vineeta Chaube", title: "Software Developer at Zynga" },
+    { quote: "Scott went on to be a hard working manager, training and mentoring others through difficult challenges of scale.", name: "Ben Hall", title: "Senior Manager / Principal Engineer" },
+    { quote: "As a studio engineering lead, he motivated team cohesion, formulated solutions and metrics for good software development, and managed multiple transitions of products from team to team.", name: "William Wong", title: "Senior Manager" }
   ];
 
   faqs = [
@@ -320,6 +446,11 @@ class Component extends DCLogic {
       stats: this.stats,
       workCards: this.workCards,
       services: this.services,
+      games: this.games,
+      featured: this.featured,
+      recommendations: this.recommendations,
+      career: this.career,
+      skillGroups: this.skillGroups,
       faqs: this.faqs
     };
   }
