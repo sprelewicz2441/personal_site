@@ -13,7 +13,7 @@
 <script src="styles/_ds_bundle.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scott R. Prelewicz — Engineering Leader, Applied AI</title>
-<meta name="description" content="Scott R. Prelewicz is a hands-on engineering leader and startup builder — from scaling FrontierVille at Zynga to building production AI systems. Profile, selected work, and the full résumé.">
+<meta name="description" content="Scott R. Prelewicz is a hands-on engineering leader and startup builder — from scaling FrontierVille at Zynga to building production AI systems. Track record, consulting services, and the full résumé.">
 <meta property="og:title" content="Scott R. Prelewicz — Engineering Leader, Applied AI">
 <meta property="og:description" content="Hands-on engineering leader and startup builder. 25+ years shipping software, from Zynga's FrontierVille to production AI systems at Impacked Packaging.">
 <meta property="og:type" content="profile">
@@ -48,7 +48,8 @@ a:hover{color:var(--link-hover);text-decoration:underline}
 <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
 <nav style="display:flex;align-items:center;gap:22px">
 <a href="#about" style="font-size:14px;color:var(--text)">About</a>
-<sc-if value="{{ showSelectedWork }}" hint-placeholder-val="{{ true }}"><a href="#work" style="font-size:14px;color:var(--text)">Work</a></sc-if>
+<sc-if value="{{ showSelectedWork }}" hint-placeholder-val="{{ true }}"><a href="#work" style="font-size:14px;color:var(--text)">Track Record</a></sc-if>
+<a href="#services" style="font-size:14px;color:var(--text)">Services</a>
 <a href="./resume.html" style="font-size:14px;color:var(--text)">The Long Version</a>
 <a href="#faq" style="font-size:14px;color:var(--text)">FAQ</a>
 <a href="#contact" style="font-size:14px;color:var(--text)">Contact</a>
@@ -79,7 +80,8 @@ a:hover{color:var(--link-hover);text-decoration:underline}
 <sc-if value="{{ isMobileNavOpen }}" hint-placeholder-val="{{ false }}">
 <nav style="display:flex;flex-direction:column;background:var(--bg);border-bottom:2px solid var(--divider)">
 <a onClick="{{ closeMobileNav }}" href="#about" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">About</a>
-<sc-if value="{{ showSelectedWork }}" hint-placeholder-val="{{ true }}"><a onClick="{{ closeMobileNav }}" href="#work" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">Work</a></sc-if>
+<sc-if value="{{ showSelectedWork }}" hint-placeholder-val="{{ true }}"><a onClick="{{ closeMobileNav }}" href="#work" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">Track Record</a></sc-if>
+<a onClick="{{ closeMobileNav }}" href="#services" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">Services</a>
 <a onClick="{{ closeMobileNav }}" href="./resume.html" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">The Long Version</a>
 <a onClick="{{ closeMobileNav }}" href="#faq" style="padding:14px 24px;font-size:15px;color:var(--text);border-bottom:1px solid var(--divider)">FAQ</a>
 <a onClick="{{ closeMobileNav }}" href="#contact" style="padding:14px 24px;font-size:15px;color:var(--text)">Contact</a>
@@ -155,24 +157,51 @@ Download Résumé
 </section>
 
 <sc-if value="{{ showSelectedWork }}" hint-placeholder-val="{{ true }}">
-<section id="work" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:64px 24px 72px;border-top:2px solid var(--divider);display:flex;flex-wrap:wrap;gap:40px">
-<div style="flex:0 0 180px">
-<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link)">Selected Work</div>
-<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(26px,3.2vw,34px);line-height:1.1;letter-spacing:-.01em;margin:14px 0 0">A few things worth pointing at.</h2>
-<p style="font-size:13px;color:var(--text-muted);line-height:1.5;margin:14px 0 0">Pulled from the work above — independent projects will land here too.</p>
+<section id="work" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:72px 24px 80px;border-top:2px solid var(--divider)">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link)">Track Record</div>
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(34px,5.5vw,64px);line-height:1;letter-spacing:-.02em;margin:14px 0 18px;max-width:880px">Twenty-five years of shipping things that worked.</h2>
+<p style="font-size:clamp(16px,1.8vw,19px);line-height:1.55;color:var(--text-muted);max-width:640px;margin:0 0 44px">A $160M year, millions of daily users, teams built from scratch, and production AI. The numbers first, then the stories behind them.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--text);border-bottom:1px solid var(--divider);margin-bottom:48px">
+<sc-for list="{{ stats }}" as="stat" hint-placeholder-count="6">
+<div style="padding:26px 20px 26px 0">
+<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(38px,5vw,60px);line-height:1;letter-spacing:-.02em;color:var(--link)">{{ stat.value }}</div>
+<div style="font-size:13px;line-height:1.4;color:var(--text-muted);margin-top:10px;max-width:200px">{{ stat.label }}</div>
 </div>
-<div style="flex:1 1 480px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
-<sc-for list="{{ workCards }}" as="card" hint-placeholder-count="4">
-<div style="background:var(--surface);padding:22px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow-sm)">
-<div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--link);font-weight:700">{{ card.kicker }}</div>
-<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:18px;line-height:1.25">{{ card.title }}</div>
-<p style="margin:0;font-size:13.5px;line-height:1.55;color:var(--text-muted);flex:1">{{ card.body }}</p>
-<div style="font-size:11px;color:var(--text-muted);padding-top:10px;border-top:1px solid var(--divider)">{{ card.meta }}</div>
+</sc-for>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px">
+<sc-for list="{{ workCards }}" as="card" hint-placeholder-count="6">
+<div style="background:var(--surface);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-sm);border-top:4px solid var(--accent)">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--link);font-weight:800">{{ card.kicker }}</div>
+<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-.01em">{{ card.title }}</div>
+<p style="margin:0;font-size:16px;line-height:1.6;color:var(--text-muted);flex:1">{{ card.body }}</p>
+<div style="font-size:12px;color:var(--text-muted);padding-top:14px;border-top:1px solid var(--divider)">{{ card.meta }}</div>
 </div>
 </sc-for>
 </div>
 </section>
 </sc-if>
+
+<div style="background:var(--surface-2);border-top:2px solid var(--divider)">
+<section id="services" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:72px 24px 80px">
+<div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--link)">Services</div>
+<h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(34px,5.5vw,64px);line-height:1;letter-spacing:-.02em;margin:14px 0 18px;max-width:880px">Hire the person who's done it.</h2>
+<p style="font-size:clamp(16px,1.8vw,19px);line-height:1.55;color:var(--text-muted);max-width:640px;margin:0 0 44px">I take on a small number of consulting and fractional engagements. Senior, hands-on, and focused on outcomes rather than hours.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px">
+<sc-for list="{{ services }}" as="svc" hint-placeholder-count="4">
+<div style="background:var(--bg);padding:28px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--divider)">
+<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:12px;letter-spacing:.1em;color:var(--link)">{{ svc.num }}</div>
+<div style="font-family:Archivo,sans-serif;font-weight:800;font-size:22px;line-height:1.15">{{ svc.title }}</div>
+<p style="margin:0;font-size:15px;line-height:1.6;color:var(--text-muted);flex:1">{{ svc.body }}</p>
+<div style="font-size:12px;color:var(--text-muted);padding-top:12px;border-top:1px solid var(--divider)">{{ svc.proof }}</div>
+</div>
+</sc-for>
+</div>
+<a href="#contact" style="display:inline-flex;align-items:center;gap:8px;margin-top:36px;font-family:Archivo,sans-serif;font-weight:800;font-size:15px;color:var(--on-accent);background:var(--accent);padding:15px 26px" style-hover="background:var(--accent-600)">Start a conversation</a>
+</section>
+</div>
 
 <div style="background:var(--surface-2);border-top:2px solid var(--divider)">
 <section id="faq" style="scroll-margin-top:66px;max-width:1200px;margin:0 auto;padding:64px 24px 80px;display:flex;flex-wrap:wrap;gap:40px">
@@ -195,7 +224,7 @@ Download Résumé
 <div style="max-width:1200px;margin:0 auto">
 <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.85;margin-bottom:18px">Contact</div>
 <h2 style="font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(44px,9vw,104px);line-height:.95;letter-spacing:-.02em;margin:0 0 20px;color:var(--on-accent)">Let's talk.</h2>
-<p style="font-size:clamp(16px,2vw,20px);max-width:560px;line-height:1.5;opacity:.92;margin:0 0 36px">Friends, former coworkers, curious minds, people who need a consultant — say hello.</p>
+<p style="font-size:clamp(16px,2vw,20px);max-width:560px;line-height:1.5;opacity:.92;margin:0 0 36px">Need a fractional CTO, an AI system in production, or a senior engineer who's done it at scale? Tell me what you're working on.</p>
 <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:center">
 <a href="mailto:sprelewicz@gmail.com" style="display:inline-flex;align-items:center;gap:10px;font-family:Archivo,sans-serif;font-weight:800;font-size:20px;color:var(--on-accent);border-bottom:2px solid var(--on-accent);padding-bottom:4px">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16"></rect><path d="m2 6 10 7L22 6"></path></svg>
@@ -222,11 +251,29 @@ Cape May, NJ
 class Component extends DCLogic {
   state = { theme: 'light', isMobile: false, isMobileNavOpen: false };
 
+  stats = [
+    { value: "$160M", label: "Revenue in a single year from FrontierVille, ~15% of Zynga's online-game business" },
+    { value: "6M", label: "Daily players at FrontierVille's peak" },
+    { value: "40", label: "Engineers led across a portfolio of top-50-grossing mobile games at GREE" },
+    { value: "4→12", label: "Engineering team growth at Healthie, on the way to profitability" },
+    { value: "10K+", label: "Products running through AI-generated content in production" },
+    { value: "25+", label: "Years shipping software" }
+  ];
+
   workCards = [
-    { kicker: "Impacked Packaging", title: "AI Product-Description Engine", body: "Took an OpenAI-powered content system from hackathon idea to a production workflow generating and refreshing SEO content across tens of thousands of products.", meta: "OpenAI API · Rails · SEO automation" },
-    { kicker: "Impacked Packaging", title: "Catalog-Wide Semantic Search", body: "Led production deployment of OpenAI- and Qdrant-powered semantic search, replacing filter-only discovery with natural-language, business-aware ranking.", meta: "Qdrant · Embeddings · Vector Search" },
-    { kicker: "Zynga", title: "FrontierVille at Scale", body: "Led engineering through FrontierVille's peak — about 6M daily players and a year generating roughly $160M, around 15% of Zynga's online-game revenue.", meta: "Scale · Team Leadership" },
-    { kicker: "Healthie", title: "Building the Engineering Foundation", body: "Grew the team from 4 to 12, shipped the company's first real release process, and helped it reach profitability.", meta: "Org Building · Ruby on Rails" }
+    { kicker: "Scale", title: "Games that earned $160M a year", body: "Led engineering through FrontierVille's peak at Zynga: about 6 million daily players and roughly 15% of the company's online-game revenue. Then ran a 40-person org at GREE across top-50-grossing mobile games.", meta: "Web and mobile · High-traffic systems · Live operations" },
+    { kicker: "Applied AI", title: "From hackathon idea to production AI", body: "Took an OpenAI-powered content system from prototype to a production workflow that generates and refreshes SEO content across tens of thousands of products.", meta: "OpenAI API · Rails · SEO automation" },
+    { kicker: "Search", title: "Semantic search that understands the business", body: "Led production deployment of OpenAI- and Qdrant-powered semantic search, replacing filter-only discovery with natural-language, business-aware ranking.", meta: "Embeddings · Vector search · Qdrant" },
+    { kicker: "Team Building", title: "Small teams that out-ship big ones", body: "A three-person team kept delivering what a nine-person team used to handle. At Healthie, grew engineering from 4 to 12 and shipped the company's first real release process.", meta: "Org design · Hiring · Release process" },
+    { kicker: "Results", title: "100% of OKRs, 0% voluntary attrition", body: "At Zynga, my teams hit every engineering OKR without losing anyone by choice. Fast delivery and a team people want to stay on aren't in tension.", meta: "Leadership · Retention · Execution" },
+    { kicker: "Profitability", title: "Engineering that helps the business get to profit", body: "Helped Healthie reach profitability by building the foundation (process, people, and release discipline) that let a small team move quickly and safely.", meta: "Ruby on Rails · Process · Growth-stage startups" }
+  ];
+
+  services = [
+    { num: "01", title: "Fractional CTO / Engineering Leadership", body: "Part-time senior leadership for teams that need direction, hiring help, architecture decisions, and a steady hand without a full-time executive.", proof: "Built and led teams from 4 to 40" },
+    { num: "02", title: "Applied AI Implementation", body: "Take an AI idea to production: content generation, semantic search, embeddings, and vector databases, built to be maintained, not demoed.", proof: "Shipped across tens of thousands of products" },
+    { num: "03", title: "Scaling & Architecture Review", body: "An experienced second opinion on systems that are straining under growth, covering performance, reliability, and what to fix first.", proof: "Systems serving 6M daily players" },
+    { num: "04", title: "Hands-On Engineering", body: "Senior Rails, JavaScript, and React work for a defined project, with a short path from idea to production.", proof: "25+ years in the code" }
   ];
 
   faqs = [
@@ -270,7 +317,9 @@ class Component extends DCLogic {
       heroGrayscaleOff: !heroGrayscale,
       resumeUrl: this.props.resumeUrl || './assets/Scott-Prelewicz-Resume.pdf',
       year: new Date().getFullYear(),
+      stats: this.stats,
       workCards: this.workCards,
+      services: this.services,
       faqs: this.faqs
     };
   }
